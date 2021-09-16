@@ -15,10 +15,9 @@ jobs:
           user: "${{ github.event.issue.user.login }}"
           flag: "${{ secrets.FLAG }}"
         run: |
-          c=$(for i in {00000..99999};echo "[$i]")&&echo $c >> issues
+          c=$(for i in {00000..99999};echo -e "[$i]")&&echo "$c" >> issues
           git config user.name github-actions
           git config user.email github-actions@github.com
           git add .
           git commit -m "[`date +%Y/%m/%d/%T`] : commit by Actions"
           git push
-
