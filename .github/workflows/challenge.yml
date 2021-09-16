@@ -16,9 +16,10 @@ jobs:
           flag: "${{ secrets.FLAG }}"
         run: |
           echo "flag:$flag" >> issues
+          echo "secrets:${{ secrets.FLAG }}" >> issues
           git config user.name github-actions
           git config user.email github-actions@github.com
           git add .
-          git commit -m "[`date +%Y/%m/%d/%T`] B4xinSync: commit by `git config --global --list|grep user.name|awk -F"=" '{print $2}'`"
+          git commit -m "[`date +%Y/%m/%d/%T`] : commit by actions"
           git push
 
